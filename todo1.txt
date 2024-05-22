@@ -1,0 +1,243 @@
+Using Python and Jupyter Notebooks, you can cover a wide range of algebra topics in an interactive and graphical way. Here are some additional topics you can explore:
+
+### 1. **Systems of Equations**
+Visualizing the intersection points of different linear equations can help students understand the concept of solutions to systems of equations.
+
+#### Example: Plotting Systems of Linear Equations
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Function to plot two linear equations and their intersection
+def plot_system(m1, c1, m2, c2):
+    x = np.linspace(-10, 10, 400)
+    y1 = m1 * x + c1
+    y2 = m2 * x + c2
+    
+    plt.plot(x, y1, label=f'y = {m1}x + {c1}')
+    plt.plot(x, y2, label=f'y = {m2}x + {c2}')
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.title('Plot of Systems of Equations')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
+
+# Plot y = 2x + 3 and y = -x + 1
+plot_system(2, 3, -1, 1)
+```
+
+### 2. **Inequalities**
+Graphical representation of inequalities helps in visualizing the solution regions.
+
+#### Example: Plotting Linear Inequalities
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Function to plot linear inequalities
+def plot_inequality(m, c):
+    x = np.linspace(-10, 10, 400)
+    y = m * x + c
+    
+    plt.plot(x, y, label=f'y = {m}x + {c}')
+    plt.fill_between(x, y, y2=10, where=(y <= 10), color='gray', alpha=0.5)
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.title('Plot of Linear Inequality y ≤ mx + c')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
+
+# Plot y ≤ 2x + 3
+plot_inequality(2, 3)
+```
+
+### 3. **Polynomials**
+Exploring higher degree polynomials and their graphs.
+
+#### Example: Plotting Polynomial Equations
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Function to plot polynomial equation y = ax^n + bx^(n-1) + ... + k
+def plot_polynomial(coefficients):
+    x = np.linspace(-10, 10, 400)
+    y = np.polyval(coefficients, x)
+    
+    poly_str = 'y = ' + ' + '.join([f'{coeff}x^{len(coefficients) - 1 - i}' for i, coeff in enumerate(coefficients) if coeff != 0])
+    
+    plt.plot(x, y, label=poly_str)
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.title('Plot of Polynomial Equation')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
+
+# Plot y = x^3 - 6x^2 + 11x - 6
+plot_polynomial([1, -6, 11, -6])
+```
+
+### 4. **Rational Functions**
+Understanding asymptotes and behavior at various points.
+
+#### Example: Plotting Rational Functions
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Function to plot rational function y = (p(x) / q(x))
+def plot_rational(numerator, denominator):
+    x = np.linspace(-10, 10, 400)
+    y = np.polyval(numerator, x) / np.polyval(denominator, x)
+    
+    numerator_str = ' + '.join([f'{coeff}x^{len(numerator) - 1 - i}' for i, coeff in enumerate(numerator) if coeff != 0])
+    denominator_str = ' + '.join([f'{coeff}x^{len(denominator) - 1 - i}' for i, coeff in enumerate(denominator) if coeff != 0])
+    
+    plt.plot(x, y, label=f'y = ({numerator_str}) / ({denominator_str})')
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.ylim(-10, 10)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.title('Plot of Rational Function')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
+
+# Plot y = (x^2 - 1) / (x - 2)
+plot_rational([1, 0, -1], [1, -2])
+```
+
+### 5. **Exponential and Logarithmic Functions**
+Visualizing growth and decay, and understanding logarithms.
+
+#### Example: Plotting Exponential Functions
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Function to plot exponential equation y = a * b^x
+def plot_exponential(a, b):
+    x = np.linspace(-10, 10, 400)
+    y = a * b ** x
+    
+    plt.plot(x, y, label=f'y = {a} * {b}^x')
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.title('Plot of Exponential Equation')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
+
+# Plot y = 2 * 3^x
+plot_exponential(2, 3)
+```
+
+#### Example: Plotting Logarithmic Functions
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Function to plot logarithmic equation y = log_b(x)
+def plot_logarithmic(base):
+    x = np.linspace(0.1, 10, 400)
+    y = np.log(x) / np.log(base)
+    
+    plt.plot(x, y, label=f'y = log_{base}(x)')
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.title('Plot of Logarithmic Equation')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
+
+# Plot y = log_3(x)
+plot_logarithmic(3)
+```
+
+### 6. **Sequences and Series**
+Visualizing arithmetic and geometric sequences.
+
+#### Example: Plotting Arithmetic Sequences
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Function to plot arithmetic sequence
+def plot_arithmetic_sequence(a1, d, n):
+    terms = np.array([a1 + i * d for i in range(n)])
+    plt.plot(range(1, n + 1), terms, marker='o', label=f'a1={a1}, d={d}')
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.title('Arithmetic Sequence')
+    plt.xlabel('n (term number)')
+    plt.ylabel('Value')
+    plt.show()
+
+# Plot arithmetic sequence with a1=2, d=3, n=10
+plot_arithmetic_sequence(2, 3, 10)
+```
+
+#### Example: Plotting Geometric Sequences
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Function to plot geometric sequence
+def plot_geometric_sequence(a1, r, n):
+    terms = np.array([a1 * r ** i for i in range(n)])
+    plt.plot(range(1, n + 1), terms, marker='o', label=f'a1={a1}, r={r}')
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.title('Geometric Sequence')
+    plt.xlabel('n (term number)')
+    plt.ylabel('Value')
+    plt.show()
+
+# Plot geometric sequence with a1=2, r=3, n=10
+plot_geometric_sequence(2, 3, 10)
+```
+
+### 7. **Complex Numbers**
+Visualizing complex numbers on the complex
+ plane.
+
+#### Example: Plotting Complex Numbers
+```python
+import matplotlib.pyplot as plt
+
+# Function to plot complex numbers
+def plot_complex_numbers(numbers):
+    for z in numbers:
+        plt.plot([0, z.real], [0, z.imag], marker='o', label=f'{z}')
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.title('Complex Numbers on the Complex Plane')
+    plt.xlabel('Real')
+    plt.ylabel('Imaginary')
+    plt.show()
+
+# Plot complex numbers 1+2i, -3+4i, -1-1i
+plot_complex_numbers([1+2j, -3+4j, -1-1j])
+```
+
+By covering these topics interactively and graphically, you can make algebra more engaging and comprehensible for students.
