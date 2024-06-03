@@ -5,6 +5,7 @@ from PIL import Image
 # Step 1: Generate 30 random integers and add them to an array
 #np.random.seed(0)  # For reproducibility
 data = np.random.randint(1, 101, size=30)  # Random integers between 1 and 100
+#data = [100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ]
 
 # Step 2: Calculate mean, average, and standard deviation
 mean = np.mean(data)
