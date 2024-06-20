@@ -1,0 +1,19 @@
+[
+    {
+        "question": "What is the capital of France?",
+        "correct_answer": "Paris",
+        "options": ["Paris", "London", "Berlin"],
+        "image": "images/paris.jpg"
+    },
+    {
+        "question": "What is 2 + 2?",
+        "correct_answer": "4",
+        "options": ["3", "4", "5"]
+    },
+    {
+        "question": "What is the chemical symbol for water?",
+        "correct_answer": "H2O",
+        "options": ["H2O", "CO2", "O2"],
+        "image": "images/water.jpg"
+    }
+]
