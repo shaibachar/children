@@ -15,7 +15,6 @@ class FlashcardApp:
         self.current_card = None
         self.username = None
         self.scores = {}
-
         self.load_scores()
         self.create_username_prompt()
 
